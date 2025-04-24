@@ -123,7 +123,7 @@ if($authenticated){
     </head>
 
     <section class="loginSec">
-    <script type="text/javascript" src="./signUp.js"></script>
+
 
     <div class="vidBG">
         <video autoplay muted loop id="myVideo">
@@ -166,8 +166,11 @@ if($authenticated){
                         <input type="password" id="Cpass" name="Cpass" required>
                         <span class="text-danger"><?= $Cpass_err; ?></span>
 
-                        <button type="submit">login</button>
-                    </form>
+                        <button type="submit">Register</button>
+                        <a href="./login.php">
+                        <button type="button">Log In</button>
+                    </a> 
+                    </form>                   
                 </fieldset>
             </article>
         </div>
