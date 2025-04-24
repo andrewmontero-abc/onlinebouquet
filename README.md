@@ -1,6 +1,8 @@
 # Registration-Sys-PHP
 
-Only a practical application from the tutorial video provided eariler: https://youtu.be/WaRhPMrH3AY?si=pUsAAzlqqwQTaFeo
+### Localhosted using XAMPP, with Apache and MySQL. Use PHP code wisely, do **NOT** copy this UI to the last pixel.
+### Only a practical application from the tutorial video provided eariler: https://youtu.be/WaRhPMrH3AY?si=pUsAAzlqqwQTaFeo
+
 
 # Images:
 
