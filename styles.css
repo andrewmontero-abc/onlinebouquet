@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    ;
+}
+@font-face {
+    font-family: 'Matisse-EB'; /* Choose a unique name for the font */
+    src: url('/fonts/FOT-Matisse\ Pro\ EB.otf') format('truetype'); /* Replace with your font file path */
+    /* You might also include a web open format (.woff or .woff2) for better browser compatibility */
+    font-style: normal;
+    font-weight: normal;
+}
+body{
+    font-family: 'Matisse-EB';
+    background-color: black;
+}
+.loginSec{
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically */
+    min-height: 100vh;       /* full viewport height */
+    position: relative;      /* ensures overlays stay inside */
+    z-index: 2;              /* above video */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.NLogo {
+    display: flex;
+    justify-content: center;
+    width: 60vh;
+    transition: transform 0.3s ease;
+}
+.NLogo:hover {
+    transform: scale(1.1);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;            /* Ensure the form doesn’t exceed the container's width */
+    max-width: 500px;       /* Set a max-width for the form */
+    margin: 0 auto;        
+}
+
+label{
+    margin-top: 10px;
+    font-weight: bold;
+    color: red;
+}
+
+input{
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+input[type="text"], input[type="password"]{
+width: 100%;
+}
+button{
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: red;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor:pointer;
+    transition: background 0.3 ease;
+}
+.vidBG {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  /* Video background */
+  #myVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+    opacity: 0.7;
+  }
+  .fieldset{
+    color: red;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    z-index: 1; /* Overlay sits above the video */
+  }
