@@ -26,13 +26,14 @@ console.log('Match: " . (password_verify($_POST['pass-auth'], $stored_password) 
 This is for debugging.
 
 
+
 # How to change directories for anchor tags, headers and forms
 
 ## Headers: 
 ```php
 header("Location: home.php");
 ```
-> in this instamce, if your redirection target is a php in the same folder, you can try
+> in this instance, if your redirection target is a php in the same folder, you can try
 ```php
 Location: ./home.php //or your php of choice
 ```
