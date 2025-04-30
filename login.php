@@ -92,12 +92,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <h1><header class="profname">Log In/Sign Up</header></h1>
                     </legend>
 
-                    <?php
-                     if(!empty($error)) { 
-                         var_dump($stored_password);
-                    } 
-                    ?>
-
 
                     <form method="post" id="loginF">
                         <label for="em-auth">Email Address:</label>
