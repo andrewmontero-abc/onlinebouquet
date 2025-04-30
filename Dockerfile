@@ -1,25 +1,25 @@
 FROM php:8.2-fpm-alpine
 
+# Install NGINX and other dependencies
+RUN apk add --no-cache nginx git bash
+
+# Create required directories
+RUN mkdir -p /run/nginx
+
 # Set working directory
 WORKDIR /app
 
-# Copy project files
+# Copy your code
 COPY . .
 
-# Install dependencies
-RUN apk add --update --no-cache  \
-    git  \
-    && rm -rf /var/cache/apk/*
+# Copy NGINX config
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expose port
-EXPOSE 9000
+# Expose the port Render will listen to
+EXPOSE 10000
 
-# Set environment variables
-ENV ALLOW_HOST_REACHABLE=1
+# Use supervisord to run both nginx and php-fpm
+RUN apk add --no-cache supervisor
+COPY supervisord.conf /etc/supervisord.conf
 
-# Set webserver user
-RUN adduser -D webuser
-
-# Run PHP-FPM
-USER webuser
-CMD ["php-fpm"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
