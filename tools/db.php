@@ -1,6 +1,6 @@
 <?php
 function getDBConnection(){
-    $servername = "nervdb.ddns.net";
+    $servername = "192.168.254.111";
     $username = "root";
     $password = "";
     $database = "nervusers";
