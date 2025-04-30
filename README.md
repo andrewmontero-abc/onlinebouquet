@@ -1,7 +1,9 @@
 # Registration-Sys-PHP
 
-### Localhosted using XAMPP, with Apache and MySQL. Use PHP code wisely, do **NOT** copy this UI to the last pixel.
-### Only a practical application from the tutorial video provided eariler: https://youtu.be/WaRhPMrH3AY?si=pUsAAzlqqwQTaFeo
+### Hosted using Render. Do **NOT** copy this UI to the last pixel.
+### Only a practical application from the tutorial video provided eariler:
+https://youtu.be/WaRhPMrH3AY?si=pUsAAzlqqwQTaFeo
+
 
 # Vulnerability Note: Remove this part of code within login.php
 ```php
