@@ -4,6 +4,17 @@
 ### Only a practical application from the tutorial video provided eariler:
 https://youtu.be/WaRhPMrH3AY?si=pUsAAzlqqwQTaFeo
 
+# Sections
+## [Vulnerability Notes](#vulnerability-note-remove-this-part-of-code-within-loginphp)
+## [How to change directories for anchor tags, headers and forms](#how-to-change-directories-for-anchor-tags-headers-and-forms)
+## [Hosting with Render](#hosting-with-render)
+## [FreeDB hosting for SQL](#freedb-hosting-for-sql)
+## [Images](#images)
+
+
+
+
+
 
 # Vulnerability Note: Remove this part of code within login.php
 ```php
