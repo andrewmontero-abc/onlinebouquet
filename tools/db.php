@@ -1,9 +1,9 @@
 <?php
 function getDBConnection(){
-    $servername = "localhost";
+    $servername = "sql301.infinityfree.com";
     $username = "root";
     $password = "";
-    $database = "nervusers";
+    $database = "users";
 
 
 $connection = new mysqli($servername, $username, $password, $database);
