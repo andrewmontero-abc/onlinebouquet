@@ -15,8 +15,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = trim($_POST['em-auth']);
     $password = trim($_POST['pass-auth']);
 
-    echo "<script>console.log('Entered password: " . addslashes($password) . "');</script>";
-
     if(empty($email) || empty($password)){
         $error = "Email and/or Password is required.";
     } else{
@@ -39,20 +37,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $entered = 'TestPass444';
         $hash = '$2y$10$YHlni1Ev/XuE0H6TVCWiq.bL/nn1l7brL5sxCP2HYZZE3Re61FJ12';
         
-        if (password_verify($entered, $hash)) {
-            echo "✅ Password matches!";
-        } else {
-            echo "❌ Still doesn't match.";
-        }
 
         if($statement->fetch()){
-
-            echo "<script>
-console.log('Entered: " . $_POST['pass-auth'] . "');
-console.log('Stored: " . $stored_password . "');
-console.log('Match: " . (password_verify($_POST['pass-auth'], $stored_password) ? 'yes' : 'no') . "');
-</script>";
-
 
             if(password_verify($password,$stored_password)){
                 echo "<script>console.log('DEBUG: Password MATCHED');</script>";
@@ -67,7 +53,6 @@ console.log('Match: " . (password_verify($_POST['pass-auth'], $stored_password) 
                 exit;
             }
         }
-        echo "<script>console.log('DEBUG: Password DID NOT match');</script>";
 
         $statement->close();
 
