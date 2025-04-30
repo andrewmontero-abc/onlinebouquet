@@ -5,10 +5,10 @@
 https://youtu.be/WaRhPMrH3AY?si=pUsAAzlqqwQTaFeo
 
 # Sections
-## [Vulnerability Note](#vulnerability-note)
-## [How to Change Directories for Anchor Tags, Headers and Forms](#how-to-change-directories-for-anchor-tags-headers-and-forms)
-## [Hosting with Render](#hosting-with-render)
-## [FreeDB Hosting for SQL](#freedb-hosting-for-sql)
+## [Vulnerability Note](#vulnerability-note-1)
+## [How to Change Directories for Anchor Tags, Headers and Forms](#how-to-change-directories-for-anchor-tags-headers-and-forms-1)
+## [Hosting with Render](#hosting-with-render-1)
+## [FreeDB Hosting for SQL](#freedb-hosting-for-sql-1)
 ## [Images](#images)
 
 
