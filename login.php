@@ -96,7 +96,7 @@ console.log('Match: " . (password_verify($_POST['pass-auth'], $stored_password) 
     <div class="overlay">
         <div class="content-wrapper">
             <div class="logo">
-                <a href="./TalentProfiles/moriCalliope.html">
+                 <a href="https://evangelion.fandom.com/wiki/NERV">
                     <img class="NLogo" src="./NERV-Logo.png">
                 </a>
             </div>
