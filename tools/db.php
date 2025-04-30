@@ -1,8 +1,8 @@
 <?php
 function getDBConnection(){
     $servername = "sql.freedb.tech";
-    $username = "root";
-    $password = "";
+    $username = "freedb_shinji";
+    $password = "93YSwuPD%sdAQSv";
     $database = "freedb_nervusers";
     $port = 3306;
 
