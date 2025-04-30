@@ -1,9 +1,9 @@
 <?php
 function getDBConnection(){
-    $servername = "192.168.254.111";
+    $servername = "sql.freedb.tech";
     $username = "root";
     $password = "";
-    $database = "nervusers";
+    $database = "freedb_nervusers";
     $port = 3306;
 
 
