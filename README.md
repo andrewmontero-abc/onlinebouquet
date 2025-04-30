@@ -5,10 +5,10 @@
 https://youtu.be/WaRhPMrH3AY?si=pUsAAzlqqwQTaFeo
 
 # Sections
-## [Vulnerability Notes](#vulnerability-note-remove-this-part-of-code-within-loginphp)
-## [How to change directories for anchor tags, headers and forms](#how-to-change-directories-for-anchor-tags-headers-and-forms)
+## [Vulnerability Note](#vulnerability-note)
+## [How to Change Directories for Anchor Tags, Headers and Forms](#how-to-change-directories-for-anchor-tags-headers-and-forms)
 ## [Hosting with Render](#hosting-with-render)
-## [FreeDB hosting for SQL](#freedb-hosting-for-sql)
+## [FreeDB Hosting for SQL](#freedb-hosting-for-sql)
 ## [Images](#images)
 
 
@@ -16,7 +16,8 @@ https://youtu.be/WaRhPMrH3AY?si=pUsAAzlqqwQTaFeo
 
 
 
-# Vulnerability Note: Remove this part of code within login.php
+# Vulnerability Note:
+## Remove this part of code within login.php
 ```php
 
         $entered = 'TestPass444';
@@ -72,7 +73,7 @@ Location: https://aws.amazon.com/free/webapps/?trk=80c137f7-7e39-4c7a-b481-96610
 
 > For Example
 
-In this File Structure:
+> In this File Structure:
 ```
 ->htdocs
   ->eldtrich
@@ -101,7 +102,8 @@ In this File Structure:
 ```
 > make sure that you remove any `onclick=""` instance.
 
-# Hosting with Render:
+
+# Hosting with Render
 
 ## To begin hosting with Render, we must first make an account [here](https://dashboard.render.com/login)
 > Once logged in, we must create a new web service.
@@ -214,6 +216,7 @@ command=nginx -g 'daemon off;'
 > ## Finally, Render Hosting is done!
 
 
+
 # FreeDB hosting for SQL
 
 ## Make an account [here](https://freedb.tech/register.html)
@@ -263,6 +266,8 @@ $servername = "sql.freedb.tech";
 
 ## After this, return to your Render Dashboard, click Manual Deploy > Deploy Latest Commit
 > Once the build is done, click the link and look at your website.
+
+
 
 
 # Images:
