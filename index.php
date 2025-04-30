@@ -6,10 +6,7 @@ $authenticated = false;
 if(isset($_SESSION["email"])){
     $authenticated = true;
 }
-?>
 
-
-<?php
 $first_name = "";
 $last_name = "";
 $email = "";
@@ -104,9 +101,6 @@ IF($_SERVER['REQUEST_METHOD'] == 'POST'){
     exit();
     }
 }
-?>
-
-<?php
 if($authenticated){
     header("Location: home.php");
     exit();
