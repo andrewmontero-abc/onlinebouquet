@@ -135,7 +135,7 @@ if($authenticated){
     <div class="overlay">
         <div class="content-wrapper">
             <div class="logo">
-                <a href="./TalentProfiles/moriCalliope.html">
+                <a href="https://evangelion.fandom.com/wiki/NERV">
                     <img class="NLogo" src="./NERV-Logo.png">
                 </a>
             </div>
