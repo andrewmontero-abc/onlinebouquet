@@ -25,7 +25,7 @@
                     <tr>
                         <td class="Main1">
                             <div class="zoom-container">
-                              <a href="./TalentProfiles/moriCalliope.html">
+                               <a href="https://evangelion.fandom.com/wiki/NERV">
                                 <img class="NLogo" src="./NERV-Logo.png">
                               </a>
                             </div>
