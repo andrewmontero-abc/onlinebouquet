@@ -1,9 +1,10 @@
 <?php
 function getDBConnection(){
-    $servername = "sql301.infinityfree.com";
+    $servername = "nervdb.ddns.net";
     $username = "root";
     $password = "";
-    $database = "users";
+    $database = "nervusers";
+    $port = 3306;
 
 
 $connection = new mysqli($servername, $username, $password, $database);
