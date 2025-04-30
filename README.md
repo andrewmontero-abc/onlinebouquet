@@ -7,11 +7,11 @@ https://youtu.be/WaRhPMrH3AY?si=pUsAAzlqqwQTaFeo
 # Sections
 ## [Vulnerability Note](#vulnerability-note-1)
 ## [How to Change Directories for Anchor Tags, Headers and Forms](#how-to-change-directories-for-anchor-tags-headers-and-forms-1)
-        - [Headers](#headers)
-        - [Anchor Tags](#anchor-tags)
-        - [Forms](#forms)
+  - [Headers](#headers)
+  - [Anchor Tags](#anchor-tags)
+  - [Forms](#forms)
 ## [Hosting with Render](#hosting-with-render-1)
-        - [Creating your Dockerfile](#creating-your-dockerfile)
+  - [Creating your Dockerfile](#creating-your-dockerfile)
 ## [FreeDB Hosting for SQL](#freedb-hosting-for-sql-1)
 ## [Images](#images)
 
