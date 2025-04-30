@@ -41,7 +41,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($statement->fetch()){
 
             if(password_verify($password,$stored_password)){
-                echo "<script>console.log('DEBUG: Password MATCHED');</script>";
                 $_SESSION["id"] = $id;
                 $_SESSION["first_name"] = $first_name;
                 $_SESSION["last_name"] = $last_name;
