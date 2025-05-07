@@ -126,3 +126,36 @@ form a button {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
     z-index: 1; /* Overlay sits above the video */
   }
+
+.navidiv {
+    width: 100%;
+    max-width: 1200px;
+    /* Restrict width for better layout */
+}
+.navLogo{
+  height: 70px;
+  width: auto;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+  gap: 30px; /* Adds spacing between links */
+}
+.nav-links li{
+  display: flex;
+    align-items: center;
+}
+.nav-links li:first-child {
+  margin-right: auto; /* Pushes logo to the left */
+}
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    transition: color 0.3s;
+  }
+  
+.nav-links a:hover {
+  color: #00bcd4; /* Color change on hover */
+}
