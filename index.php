@@ -142,23 +142,23 @@ if($authenticated){
                     <form method="post" id="loginF">
                         <label for="fname">First Name:</label>
                         <input type="text" id="fname" name="fname" value="<?= $first_name; ?>" required>
-                        <span class="text-danger"><?= $fname_err; ?></span>
+                        <p class="text-danger"><?= $fname_err; ?></p>
 
                         <label for="Lname">Last Name:</label>
                         <input type="text" id="Lname" name="Lname" value="<?= $last_name; ?>" required>
-                        <span class="text-danger"><?= $Lname_err; ?></span>
+                        <<p class="text-danger"><?= $Lname_err; ?></p>
 
                         <label for="em">Email Address:</label>
                         <input type="email" id="em" name="em" value="<?= $email; ?>" required>
-                        <span class="text-danger"><?= $email_err; ?></span>
+                        <p class="text-danger"><?= $email_err; ?></p>
 
                         <label for="pass">Password:</label>
                         <input type="password" id="pass" name="pass" required>
-                        <span class="text-danger"><?= $pass_err; ?></span>
+                        <p class="text-danger"><?= $pass_err; ?></p>
 
                         <label for="Cpass">Confirm Password:</label>
                         <input type="password" id="Cpass" name="Cpass" required>
-                        <span class="text-danger"><?= $Cpass_err; ?></span>
+                        <p class="text-danger"><?= $Cpass_err; ?></p>
 
                         <button type="submit">Register</button>
                         <a href="./login.php">
