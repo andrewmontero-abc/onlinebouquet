@@ -146,8 +146,8 @@ header {
     /* Restrict width for better layout */
 }
 .navLogo{
-  height: 15px;
-  width: auto;
+  height: 40px;
+  width: 40px;
 }
 .nav-links {
   list-style: none;
