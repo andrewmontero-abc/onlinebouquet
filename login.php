@@ -9,12 +9,15 @@ if(isset($_SESSION["email"])){
 
 
 $email = "";
+$username = "";
 $error = "";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = trim($_POST['em-auth']);
+    $username = trim($_POST['UAuth']);
     $password = trim($_POST['pass-auth']);
 
+    
     if(empty($email) || empty($password)){
         $error = "Email and/or Password is required.";
     } else{
@@ -22,14 +25,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $dbConnection = getDBConnection();
      
         $statement = $dbConnection->prepare(
-            "SELECT id, first_name, last_name, phone, password, created_at FROM users WHERE email = ?"
+            "SELECT id, first_name, last_name,username, phone, password, created_at FROM users WHERE email = ?"
         );
 
         $statement->bind_param('s',$email);
         $statement->execute();
 
 
-        $statement->bind_result($id, $first_name, $last_name, $phone, $stored_password, $created_at);
+        $statement->bind_result($id, $first_name, $last_name, $username, $phone, $stored_password, $created_at);
 
 
 
@@ -96,6 +99,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <label for="em-auth">Email Address:</label>
                         <input type="email" id="em-auth" name="em-auth" value="<?= $email; ?>" required>
                         <p class="text-danger"><?= $error; ?></p>
+                        <label for="UAuth">Username:</label>
+                        <input type="text" id="UAuth" name="UAuth" value="<?= $username; ?>" required>
+                        <p class="text-danger"><?= $user_err; ?></p>
+
                         <label for="pass-auth">Password:</label>
                         <input type="password" id="pass-auth" name="pass-auth" required>
                         <p class="text-danger"><?= $error; ?></p>
