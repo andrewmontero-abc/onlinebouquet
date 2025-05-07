@@ -112,7 +112,7 @@ a{
     text-decoration: none; /* remove underline */
 }
 form p {
-    color: red;
+    color: red !important;
 }
 form a button {
     margin-top: 10px;
