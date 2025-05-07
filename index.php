@@ -9,6 +9,7 @@ if(isset($_SESSION["email"])){
 
 $first_name = "";
 $last_name = "";
+$username = "";
 $email = "";
 $phone = "";
 $address = "";
@@ -25,6 +26,7 @@ $error = false;
 IF($_SERVER['REQUEST_METHOD'] == 'POST'){
     $first_name = $_POST['fname'];
     $last_name = $_POST['Lname'];
+    $username = $_POST['username'];
     $email = $_POST['em'];
     $password = $_POST['pass'];
     $confirmed_pass = $_POST['Cpass'];
@@ -78,11 +80,11 @@ IF($_SERVER['REQUEST_METHOD'] == 'POST'){
         $created_at = date('Y-m-d H:i:s');
 
         $statement = $dbConnection->prepare(
-            "INSERT INTO users (first_name, last_name, email, phone, address, password, created_at) ".
-            "VALUES (?,?,?,?,?,?,?)"
+            "INSERT INTO users (first_name, last_name,username, email, phone, address, password, created_at) ".
+            "VALUES (?,?,?,?,?,?,?,?)"
         );
 
-    $statement->bind_param('sssssss', $first_name,$last_name,$email,$phone,$address,$password,$created_at);
+    $statement->bind_param('sssssss', $first_name,$last_name,$username,$email,$phone,$address,$password,$created_at);
 
     $statement->execute();
 
@@ -97,7 +99,7 @@ IF($_SERVER['REQUEST_METHOD'] == 'POST'){
     $_SESSION["email"] = $email;
     $_SESSION["created_at"] = $created_at;
 
-    header("Location: home.php");
+    header("Location: login.php");
     exit();
     }
 }
