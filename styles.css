@@ -126,7 +126,20 @@ form a button {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
     z-index: 1; /* Overlay sits above the video */
   }
+header {
+  position: relative; /* Make sure the navbar is above the video */
+  z-index: 10; /* Ensure it's above the video and overlay */
+}
 
+.navibar {
+  display: flex;
+  justify-content: space-between; /* Ensures logo is on the left and links are on the right */
+  align-items: center;
+  padding: 10px 30px;
+  height: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .navidiv {
     width: 100%;
     max-width: 1200px;
