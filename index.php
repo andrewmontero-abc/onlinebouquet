@@ -146,7 +146,7 @@ if($authenticated){
 
                         <label for="Lname">Last Name:</label>
                         <input type="text" id="Lname" name="Lname" value="<?= $last_name; ?>" required>
-                        <<p class="text-danger"><?= $Lname_err; ?></p>
+                        <p class="text-danger"><?= $Lname_err; ?></p>
 
                         <label for="em">Email Address:</label>
                         <input type="email" id="em" name="em" value="<?= $email; ?>" required>
