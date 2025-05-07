@@ -95,10 +95,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     <form method="post" id="loginF">
                         <label for="em-auth">Email Address:</label>
                         <input type="email" id="em-auth" name="em-auth" value="<?= $email; ?>" required>
-
+                        <p class="text-danger"><?= $error; ?></p>
                         <label for="pass-auth">Password:</label>
                         <input type="password" id="pass-auth" name="pass-auth" required>
-
+                        <p class="text-danger"><?= $error; ?></p>
                         <button type="submit">Log In</button>
                         <a href="./index.php">
                         <button type="button">Return to Registration</button>
