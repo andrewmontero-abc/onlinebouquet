@@ -1,70 +1,64 @@
 <?php
-
 session_start();
 
-if(isset($_SESSION["email"])){
+if (isset($_SESSION["email"])) {
     header("location: ./home.php");
     exit;
 }
 
-
 $email = "";
 $username = "";
 $error = "";
+$user_err = ""; // ✅ Declare to prevent undefined warning
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = trim($_POST['em-auth']);
     $username = trim($_POST['UAuth']);
     $password = trim($_POST['pass-auth']);
 
-    
-    if(empty($email) || empty($password)){
-        $error = "Email and/or Password is required.";
-    } else{
+    if (empty($email) || empty($password) || empty($username)) {
+        $error = "All fields are required.";
+    } else {
         include "tools/db.php";
         $dbConnection = getDBConnection();
-     
+
         $statement = $dbConnection->prepare(
-            "SELECT id, first_name, last_name,username, phone, password, created_at FROM users WHERE email = ?"
+            "SELECT id, first_name, last_name, username, phone, password, created_at 
+             FROM users WHERE email = ? AND username = ?"
         );
 
-        $statement->bind_param('s',$email);
+        $statement->bind_param('ss', $email, $username);
         $statement->execute();
+        $statement->store_result();
 
+        if ($statement->num_rows == 1) {
+            $statement->bind_result($id, $first_name, $last_name, $db_username, $phone, $stored_password, $created_at);
+            $statement->fetch();
 
-        $statement->bind_result($id, $first_name, $last_name, $username, $phone, $stored_password, $created_at);
-
-
-
-
-        $entered = 'TestPass444';
-        $hash = '$2y$10$YHlni1Ev/XuE0H6TVCWiq.bL/nn1l7brL5sxCP2HYZZE3Re61FJ12';
-        
-
-        if($statement->fetch()){
-
-            if(password_verify($password,$stored_password)){
+            if (password_verify($password, $stored_password)) {
                 $_SESSION["id"] = $id;
                 $_SESSION["first_name"] = $first_name;
                 $_SESSION["last_name"] = $last_name;
                 $_SESSION["email"] = $email;
                 $_SESSION["phone"] = $phone;
                 $_SESSION["created_at"] = $created_at;
-                
+
                 header("location: ./home.php");
                 exit;
+            } else {
+                $error = "Incorrect password.";
             }
+        } else {
+            $error = "Email and username combination not found.";
         }
 
         $statement->close();
-
-        $error = "Email or Password Invalid";
     }
 }
-
 ?>
 
-    <title>NERV: User Registration</title>
+
+    <title>NERV: Login</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
