@@ -35,25 +35,10 @@
             <div class="suisei">
                 <table>
                     <tr>
-                        <td class="Main1">
-                            <div class="zoom-container">
-                               <a href="https://evangelion.fandom.com/wiki/NERV">
-                                <img class="NLogo" src="./NERV-Logo.png">
-                              </a>
-                            </div>
-                          </td>
+                       
                     </tr>
                     <tr>
                         <td>
-                            <article class="logInfo">
-                                <fieldset class="mainProf">
-                                    <legend>
-                                        <h1><header class="profname">Log In/Sign Up</header></h1>
-                                    </legend>
-                                    
-
-                                </fieldset>
-                            </article>
                         </td>
                     </tr>
                 </table>
