@@ -48,7 +48,7 @@ form{
     margin: 0 auto;        
 }
 
-label{
+label, span{
     margin-top: 10px;
     font-weight: bold;
     color: red;
