@@ -16,6 +16,7 @@ $address = "";
 
 $fname_err = "";
 $Lname_err = "";
+$user_err = "";
 $email_err = "";
 $pass_err = "";
 $Cpass_err = "";
@@ -149,6 +150,10 @@ if($authenticated){
                         <label for="Lname">Last Name:</label>
                         <input type="text" id="Lname" name="Lname" value="<?= $last_name; ?>" required>
                         <p class="text-danger"><?= $Lname_err; ?></p>
+
+                        <label for="Lname">Username:</label>
+                        <input type="text" id="Lname" name="Lname" value="<?= $last_name; ?>" required>
+                        <p class="text-danger"><?= $user_err; ?></p>
 
                         <label for="em">Email Address:</label>
                         <input type="email" id="em" name="em" value="<?= $email; ?>" required>
