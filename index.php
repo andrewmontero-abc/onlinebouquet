@@ -3,7 +3,7 @@
 session_start();
 
 $authenticated = false;
-if(isset($_SESSION["email"])){
+if (isset($_SESSION["email"])) {
     $authenticated = true;
 }
 
@@ -21,106 +21,101 @@ $email_err = "";
 $pass_err = "";
 $Cpass_err = "";
 
-
 $error = false;
 
-IF($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $first_name = $_POST['fname'];
-    $last_name = $_POST['Lname'];
-    $username = $_POST['username'];
-    $email = $_POST['em'];
-    $password = $_POST['pass'];
-    $confirmed_pass = $_POST['Cpass'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $first_name = $_POST['fname'] ?? '';
+    $last_name = $_POST['Lname'] ?? '';
+    $username = $_POST['username'] ?? '';
+    $email = $_POST['em'] ?? '';
+    $password = $_POST['pass'] ?? '';
+    $confirmed_pass = $_POST['Cpass'] ?? '';
+    $phone = $_POST['phone'] ?? '';
+    $address = $_POST['address'] ?? '';
 
-
-
-
-    if(empty($first_name)){
+    if (empty($first_name)) {
         $fname_err = "First Name is required.";
         $error = true;
     }
-    if(empty($last_name)){
+    if (empty($last_name)) {
         $Lname_err = "Last Name is required.";
+        $error = true;
+    }
+    if (empty($username)) {
+        $user_err = "Username is required.";
         $error = true;
     }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_err = "Email format invalid.";
         $error = true;
     }
-    
 
     include "tools/db.php";
     $dbConnection = getDBConnection();
 
     $statement = $dbConnection->prepare("SELECT id FROM users WHERE email = ?");
     $statement->bind_param("s", $email);
-
     $statement->execute();
-
-
     $statement->store_result();
-    if ($statement->num_rows > 0){
+    if ($statement->num_rows > 0) {
         $email_err = "Email already used.";
         $error = true;
     }
-
     $statement->close();
 
-    if(strlen($password) < 6){
-        $pass_err = "Password must be greater than 7 characters.";
+    if (strlen($password) < 6) {
+        $pass_err = "Password must be at least 6 characters.";
         $error = true;
     }
-    if($confirmed_pass != $password){
+    if ($confirmed_pass != $password) {
         $Cpass_err = "Passwords do not match.";
         $error = true;
     }
 
-
-    if(!$error){
+    if (!$error) {
         $password = password_hash($password, PASSWORD_DEFAULT);
         $created_at = date('Y-m-d H:i:s');
 
         $statement = $dbConnection->prepare(
-            "INSERT INTO users (first_name, last_name,username, email, phone, address, password, created_at) ".
-            "VALUES (?,?,?,?,?,?,?,?)"
+            "INSERT INTO users (first_name, last_name, username, email, phone, address, password, created_at) " .
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
         );
 
-    $statement->bind_param('sssssss', $first_name,$last_name,$username,$email,$phone,$address,$password,$created_at);
+        $statement->bind_param('ssssssss', $first_name, $last_name, $username, $email, $phone, $address, $password, $created_at);
 
-    $statement->execute();
+        $statement->execute();
 
-    $insert_id = $statement->insert_id;
-    $statement->close();
+        $insert_id = $statement->insert_id;
+        $statement->close();
 
+        $_SESSION["id"] = $insert_id;
+        $_SESSION["first_name"] = $first_name;
+        $_SESSION["last_name"] = $last_name;
+        $_SESSION["email"] = $email;
+        $_SESSION["created_at"] = $created_at;
 
-
-    $_SESSION["id"] = $insert_id;
-    $_SESSION["first_name"] = $first_name;
-    $_SESSION["last_name"] = $last_name;
-    $_SESSION["email"] = $email;
-    $_SESSION["created_at"] = $created_at;
-
-    header("Location: login.php");
-    exit();
+        header("Location: login.php");
+        exit();
     }
 }
-if($authenticated){
+
+if ($authenticated) {
     header("Location: home.php");
     exit();
 } else {
 ?>
 <html>
+<head>
     <title>NERV: User Registration</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
-    <head>
-    </head>
+</head>
 
-    <section class="loginSec">
-
+<body>
+<section class="loginSec">
 
     <div class="vidBG">
         <video autoplay muted loop id="myVideo">
@@ -144,20 +139,26 @@ if($authenticated){
                     </legend>
                     <form method="post" id="loginF">
                         <label for="fname">First Name:</label>
-                        <input type="text" id="fname" name="fname" value="<?= $first_name; ?>" required>
+                        <input type="text" id="fname" name="fname" value="<?= htmlspecialchars($first_name); ?>" required>
                         <p class="text-danger"><?= $fname_err; ?></p>
 
                         <label for="Lname">Last Name:</label>
-                        <input type="text" id="Lname" name="Lname" value="<?= $last_name; ?>" required>
+                        <input type="text" id="Lname" name="Lname" value="<?= htmlspecialchars($last_name); ?>" required>
                         <p class="text-danger"><?= $Lname_err; ?></p>
 
-                        <label for="Lname">Username:</label>
-                        <input type="text" id="Lname" name="Lname" value="<?= $last_name; ?>" required>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" value="<?= htmlspecialchars($username); ?>" required>
                         <p class="text-danger"><?= $user_err; ?></p>
 
                         <label for="em">Email Address:</label>
-                        <input type="email" id="em" name="em" value="<?= $email; ?>" required>
+                        <input type="email" id="em" name="em" value="<?= htmlspecialchars($email); ?>" required>
                         <p class="text-danger"><?= $email_err; ?></p>
+
+                        <label for="phone">Phone Number:</label>
+                        <input type="text" id="phone" name="phone" value="<?= htmlspecialchars($phone); ?>">
+
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" value="<?= htmlspecialchars($address); ?>">
 
                         <label for="pass">Password:</label>
                         <input type="password" id="pass" name="pass" required>
@@ -169,18 +170,14 @@ if($authenticated){
 
                         <button type="submit">Register</button>
                         <a href="./login.php">
-                        <button type="button">Log In</button>
-                    </a> 
+                            <button type="button">Log In</button>
+                        </a> 
                     </form>                   
                 </fieldset>
             </article>
         </div>
     </div>
 </section>
-
-    </body>
+</body>
 </html>
-
-<?php
-}
-?>
+<?php } ?>
