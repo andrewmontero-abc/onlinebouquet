@@ -20,7 +20,7 @@ p{
     font-weight: bold;
     color: red !important;
 }
-p.text-danger {
+.text-danger {
  color: red !important;
 }
 .loginSec{
