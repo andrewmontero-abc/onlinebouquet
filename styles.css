@@ -145,9 +145,11 @@ header {
     max-width: 1200px;
     /* Restrict width for better layout */
 }
-.navLogo{
-  height: 40px;
-  width: 40px;
+.navLogo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
 }
 .nav-links {
   list-style: none;
