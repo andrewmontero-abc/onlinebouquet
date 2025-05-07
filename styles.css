@@ -20,7 +20,9 @@ p{
     font-weight: bold;
     color: red !important;
 }
-
+p.text-danger {
+ color: red !important;
+}
 .loginSec{
     display: flex;
     justify-content: center; /* centers horizontally */
