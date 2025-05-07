@@ -6,7 +6,10 @@
     <link href="" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <head>
-        <header>
+    </head>
+
+    <body>
+<header>
             <nav class="navibar">
                 <div class="navidiv">
                     <ul class="nav-links">
@@ -18,9 +21,6 @@
                 </div>
             </nav>
         </header>
-    </head>
-
-    <body>
         <section class="loginSec">
             <script type="text/javascript" src="./signUp.js"></script>
             <div class="overlay">
