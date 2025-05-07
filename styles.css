@@ -159,3 +159,8 @@ form a button {
 .nav-links a:hover {
   color: #00bcd4; /* Color change on hover */
 }
+.text-danger{
+    margin-top: 10px;
+    font-weight: bold;
+    color: red;
+}
