@@ -110,7 +110,9 @@ a{
     margin-top: 10px;
     text-decoration: none; /* remove underline */
 }
-
+form p {
+    color: red;
+}
 form a button {
     margin-top: 10px;
     padding: 10px 15px;
