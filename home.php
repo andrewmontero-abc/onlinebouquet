@@ -10,7 +10,7 @@
             <nav class="navibar">
                 <div class="navidiv">
                     <ul class="nav-links">
-                      <li><a href="../home.html"><img class="navLogo" src="./NERV_Logo.png"></a></li>
+                      <li><a href="../home.html"><img class="navLogo" src="./NERV-Logo.png"></a></li>
                         <li><a href="./About/About.html">About</a></li>
                         <li><a href="https://jadedsieger.github.io/home"><button type="button">Go to Home</button></a></li>
                         <li><a href="./logout.php"><button type="button">Log Out</button></a></li>
