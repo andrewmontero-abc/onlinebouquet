@@ -1,13 +1,15 @@
 <?php
 function getDBConnection(){
-    $servername = "sql.freedb.tech";
-    $username = "freedb_shinji";
-    $password = "93YSwuPD%sdAQSv";
-    $database = "freedb_nervusers";
-    $port = 3306;
 
+$host = 'switchyard.proxy.rlwy.net';
+$port = 17607;
+$user = 'root';
+$password = 'TzYfrdBKhmUefTAVqmjeatqGWnNqGuwa';
+$dbname = 'railway';
 
-$connection = new mysqli($servername, $username, $password, $database);
+// Create connection
+$connection = new mysqli($host, $user, $password, $dbname, $port);
+
 if($connection->connect_error){
     die("Error: Failed to connect to MySQL. ".$connection->connect_error);
 }
