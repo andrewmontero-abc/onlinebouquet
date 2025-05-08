@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rose - Product Details</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: white;
+      min-height: 100vh;
+    }
+
+    /* Navigation Bar Styling */
+    nav {
+      background-color: #4a148c;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 4px solid #6a1b9a;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .brand {
+      color: white;
+      font-size: 24px;
+      font-family: cursive;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #d1c4e9;
+    }
+
+    /* Product Detail Section */
+    .product-detail {
+      margin-top: 120px;
+      text-align: center;
+      padding: 40px;
+      background: linear-gradient(45deg, #4a148c, #3f51b5);
+      border-radius: 10px;
+      color: white;
+    }
+
+    .product-detail img {
+      width: 80%;
+      max-width: 400px;
+      border-radius: 10px;
+    }
+
+    .product-detail h1 {
+      font-size: 36px;
+      margin-top: 20px;
+    }
+
+    .product-detail p {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    .product-detail .btn {
+      padding: 10px 20px;
+      background-color: #4a148c;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .product-detail .btn:hover {
+      background-color: #3f51b5;
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <span class="brand">Online Boutique Shop</span>
+    <div class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT US</a>
+      <a href="#contact">CONTACT</a>
+      <a href="#faqs">FAQ's</a>
+    </div>
+  </nav>
+
+  <div class="product-detail">
+    <img src="Rose.jpg" alt="Rose">
+    <h1>Rose</h1>
+    <p>Our beautiful roses are handpicked and carefully arranged to create a stunning bouquet. Perfect for any occasion!</p>
+    <a href="#" class="btn">Product Details</a>
+    <a href="#" class="btn">Add to Cart</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Montero's Bouquet Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #login-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #48129e;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #login-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login-form">
+        <h2>Login</h2>
+        <form id="login" onsubmit="return validateLogin(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" id="login-button">Login</button>
+        </form>
+        <p id="login-message">Incorrect username or password. Please try again.</p>
+    </div>
+
+    <script>
+        let loginAttempts = 0;
+        let lockoutTime = 0;
+
+        function validateLogin(event) {
+            event.preventDefault();
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const loginButton = document.getElementById('login-button');
+            const username = usernameInput.value;
+            const password = passwordInput.value;
+
+            const correctUsername = 'admin123';
+            const correctPassword = 'admin123';
+
+            const currentTime = new Date().getTime();
+
+            if (lockoutTime > 0 && currentTime < lockoutTime) {
+                const timeRemaining = ((lockoutTime - currentTime) / 1000).toFixed(1);
+                alert("You are locked out. Please wait " + timeRemaining + " seconds.");
+                return false;
+            }
+
+            if (username === correctUsername && password === correctPassword) {
+                alert('Login successful!');
+                document.getElementById('login-form').style.display = 'none';
+                
+                // Redirect to your local file
+                window.location.href = "file:///C:/Montero,%20Andrew%20-%202E/myweb/LD2_Montero_Jon_Andrew.html";
+                return true;
+            } else {
+                loginAttempts++;
+                if (loginAttempts >= 3) {
+                    lockoutTime = currentTime + 10000; 
+                    alert('Too many failed attempts. You are locked out for 10 seconds.');
+                    loginAttempts = 0; 
+
+                    // Disable inputs and button
+                    usernameInput.disabled = true;
+                    passwordInput.disabled = true;
+                    loginButton.disabled = true;
+
+                    // Re-enable inputs and button after 10 seconds
+                    setTimeout(() => {
+                        usernameInput.disabled = false;
+                        passwordInput.disabled = false;
+                        loginButton.disabled = false;
+                        lockoutTime = 0; 
+                    }, 10000);
+                }
+                document.getElementById('login-message').style.display = 'block';
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
