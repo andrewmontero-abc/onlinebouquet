@@ -104,80 +104,68 @@ if ($authenticated) {
     exit();
 } else {
 ?>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>NERV: User Registration</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css">
+  <title>User Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 12px;
+      width: 100%;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
-
 <body>
-<section class="loginSec">
-
-    <div class="vidBG">
-        <video autoplay muted loop id="myVideo">
-            <source src="./Evangelion-UI.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-    <div class="overlay">
-        <div class="content-wrapper">
-            <div class="logo">
-                <a href="https://evangelion.fandom.com/wiki/NERV">
-                    <img class="NLogo" src="./NERV-Logo.png">
-                </a>
-            </div>
-
-            <article class="logInfo">
-                <fieldset class="mainProf">
-                    <legend>
-                        <h1><header class="profname">Log In/Sign Up</header></h1>
-                    </legend>
-                    <form method="post" id="loginF">
-                        <label for="fname">First Name:</label>
-                        <input type="text" id="fname" name="fname" value="<?= htmlspecialchars($first_name); ?>" required>
-                        <p class="text-danger"><?= $fname_err; ?></p>
-
-                        <label for="Lname">Last Name:</label>
-                        <input type="text" id="Lname" name="Lname" value="<?= htmlspecialchars($last_name); ?>" required>
-                        <p class="text-danger"><?= $Lname_err; ?></p>
-
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" value="<?= htmlspecialchars($username); ?>" required>
-                        <p class="text-danger"><?= $user_err; ?></p>
-
-                        <label for="em">Email Address:</label>
-                        <input type="email" id="em" name="em" value="<?= htmlspecialchars($email); ?>" required>
-                        <p class="text-danger"><?= $email_err; ?></p>
-
-                        <label for="phone">Phone Number:</label>
-                        <input type="text" id="phone" name="phone" value="<?= htmlspecialchars($phone); ?>">
-
-                        <label for="address">Address:</label>
-                        <input type="text" id="address" name="address" value="<?= htmlspecialchars($address); ?>">
-
-                        <label for="pass">Password:</label>
-                        <input type="password" id="pass" name="pass" required>
-                        <p class="text-danger"><?= $pass_err; ?></p>
-
-                        <label for="Cpass">Confirm Password:</label>
-                        <input type="password" id="Cpass" name="Cpass" required>
-                        <p class="text-danger"><?= $Cpass_err; ?></p>
-
-                        <button type="submit">Register</button>
-                        <a href="./login.php">
-                            <button type="button">Log In</button>
-                        </a> 
-                    </form>                   
-                </fieldset>
-            </article>
-        </div>
-    </div>
-</section>
+  <form action="register.php" method="POST">
+    <h2>Create an Account</h2>
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Register</button>
+  </form>
 </body>
 </html>
 <?php } ?>
